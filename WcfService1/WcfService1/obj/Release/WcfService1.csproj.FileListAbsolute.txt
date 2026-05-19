@@ -1,0 +1,10 @@
+C:\Users\frank\source\repos\WcfService1\WcfService1\bin\WcfService1.dll.config
+C:\Users\frank\source\repos\WcfService1\WcfService1\bin\WcfService1.dll
+C:\Users\frank\source\repos\WcfService1\WcfService1\bin\WcfService1.pdb
+C:\Users\frank\source\repos\WcfService1\WcfService1\bin\Newtonsoft.Json.dll
+C:\Users\frank\source\repos\WcfService1\WcfService1\bin\Newtonsoft.Json.xml
+C:\Users\frank\source\repos\WcfService1\WcfService1\obj\Release\WcfService1.csproj.AssemblyReference.cache
+C:\Users\frank\source\repos\WcfService1\WcfService1\obj\Release\WcfService1.csproj.CoreCompileInputs.cache
+C:\Users\frank\source\repos\WcfService1\WcfService1\obj\Release\WcfServi.806E2312.Up2Date
+C:\Users\frank\source\repos\WcfService1\WcfService1\obj\Release\WcfService1.dll
+C:\Users\frank\source\repos\WcfService1\WcfService1\obj\Release\WcfService1.pdb

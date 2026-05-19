@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- https://go.microsoft.com/fwlink/?LinkID=208121. -->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\frank\Desktop\UNIS\UDL\Octavo\wsDatos</_PublishTargetUrl>
+    <History>True|2026-05-18T22:05:04.7096699Z||;True|2026-05-16T22:09:45.5602450-06:00||;True|2026-05-16T21:58:49.3489642-06:00||;True|2026-05-16T21:31:54.6789099-06:00||;True|2026-05-16T18:35:33.6130768-06:00||;True|2026-05-16T18:04:14.9682806-06:00||;True|2026-05-16T17:57:44.7246156-06:00||;True|2026-05-16T17:48:40.0898189-06:00||;True|2026-05-16T17:24:54.5487604-06:00||;True|2026-05-16T15:17:59.6197349-06:00||;True|2026-05-16T14:55:09.8834777-06:00||;True|2026-05-15T21:01:15.0045682-06:00||;True|2026-05-05T22:03:40.5680606-06:00||;True|2026-04-20T14:46:46.0391876-06:00||;True|2026-04-14T13:14:04.2351405-06:00||;True|2026-03-18T08:56:48.2509483-06:00||;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>09/16/2025 02:04:22</publishTime>
+    </File>
+    <File Include="bin/WcfService1.dll">
+      <publishTime>05/18/2026 16:24:10</publishTime>
+    </File>
+    <File Include="bin/WcfService1.pdb">
+      <publishTime>05/18/2026 16:24:10</publishTime>
+    </File>
+    <File Include="Service1.svc">
+      <publishTime>03/18/2026 08:15:03</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>03/18/2026 08:56:48</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
