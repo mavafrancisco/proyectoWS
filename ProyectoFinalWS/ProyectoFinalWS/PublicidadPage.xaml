@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:microcharts="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
+             x:Class="ProyectoFinalWS.PublicidadPage"
+             Title="Publicidad"
+             BackgroundColor="#F0F2F5">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="0">
+
+            <StackLayout BackgroundColor="#5B0000" Padding="20,25">
+                <Label Text="Publicidad y Captación"
+                       FontSize="22"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       TextColor="White"/>
+                <Label Text="Eficiencia de campañas y conversión"
+                       FontSize="13"
+                       HorizontalOptions="Center"
+                       TextColor="#D4B483"
+                       Margin="0,4,0,0"/>
+            </StackLayout>
+
+            <VerticalStackLayout Padding="15" Spacing="12">
+
+                
+                <Border Stroke="#D4B483" BackgroundColor="White"
+                        StrokeThickness="1" Padding="15"
+                        StrokeShape="roundrectangle 15">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Selecciona una campaña"
+                               FontAttributes="Bold"
+                               FontSize="14"
+                               TextColor="#5B0000"/>
+                        <BoxView HeightRequest="1" Color="#E0E0E0"/>
+                        <Picker x:Name="pickerCampana"
+                                Title="-- Selecciona una campaña --"
+                                SelectedIndexChanged="OnCampanaChanged"
+                                TextColor="Black"
+                                BackgroundColor="#F0F2F5"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                    <Border Grid.Column="0"
+                            Stroke="#D4B483" BackgroundColor="White"
+                            StrokeThickness="1" Padding="14"
+                            StrokeShape="roundrectangle 15">
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="👁 Alcance"
+                                   FontSize="11" TextColor="#888"/>
+                            <Label x:Name="lblAlcance"
+                                   Text="0"
+                                   FontSize="26"
+                                   FontAttributes="Bold"
+                                   TextColor="#5B0000"/>
+                            <Label Text="personas alcanzadas"
+                                   FontSize="11" TextColor="#888"/>
+                        </VerticalStackLayout>
+                    </Border>
+                    <Border Grid.Column="1"
+                            Stroke="#D4B483" BackgroundColor="White"
+                            StrokeThickness="1" Padding="14"
+                            StrokeShape="roundrectangle 15">
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="💰 Inversión"
+                                   FontSize="11" TextColor="#888"/>
+                            <Label x:Name="lblInversion"
+                                   Text="$0"
+                                   FontSize="26"
+                                   FontAttributes="Bold"
+                                   TextColor="#5B0000"/>
+                            <Label Text="en publicidad"
+                                   FontSize="11" TextColor="#888"/>
+                        </VerticalStackLayout>
+                    </Border>
+                </Grid>
+
+                
+                <Border Stroke="#D4B483" BackgroundColor="White"
+                        StrokeThickness="1" Padding="15"
+                        StrokeShape="roundrectangle 15">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="¿Qué pasa con cada persona que ve el anuncio?"
+                               FontAttributes="Bold"
+                               FontSize="14"
+                               TextColor="#5B0000"/>
+                        <BoxView HeightRequest="1" Color="#E0E0E0"/>
+
+                        
+                        <Border BackgroundColor="#5B0000"
+                                Stroke="Transparent"
+                                Padding="14"
+                                StrokeShape="roundrectangle 12">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <VerticalStackLayout Grid.Column="0" Spacing="2">
+                                    <Label Text="👁 Ven el anuncio"
+                                           FontSize="14"
+                                           FontAttributes="Bold"
+                                           TextColor="White"/>
+                                    <Label Text="100% del alcance"
+                                           FontSize="11"
+                                           TextColor="#D4B483"/>
+                                </VerticalStackLayout>
+                                <Label Grid.Column="1"
+                                       x:Name="lblEmbudoAlcance"
+                                       Text="0"
+                                       FontSize="24"
+                                       FontAttributes="Bold"
+                                       TextColor="#D4B483"
+                                       VerticalOptions="Center"/>
+                            </Grid>
+                        </Border>
+
+                        
+                        <Grid ColumnDefinitions="*,Auto,*">
+                            <BoxView Grid.Column="0" HeightRequest="1"
+                                     Color="#E0E0E0" VerticalOptions="Center"/>
+                            <Border Grid.Column="1"
+                                    x:Name="borderEtiqueta1"
+                                    BackgroundColor="#FCEBEB"
+                                    Stroke="Transparent"
+                                    Padding="8,4"
+                                    StrokeShape="roundrectangle 20">
+                                <Label x:Name="lblEtiqueta1"
+                                       Text=""
+                                       FontSize="11"
+                                       TextColor="#791F1F"
+                                       FontAttributes="Bold"/>
+                            </Border>
+                            <BoxView Grid.Column="2" HeightRequest="1"
+                                     Color="#E0E0E0" VerticalOptions="Center"/>
+                        </Grid>
+
+                        
+                        <Border BackgroundColor="#9C8442"
+                                Stroke="Transparent"
+                                Padding="14"
+                                StrokeShape="roundrectangle 12">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <VerticalStackLayout Grid.Column="0" Spacing="2">
+                                    <Label Text="💬 Piden información"
+                                           FontSize="14"
+                                           FontAttributes="Bold"
+                                           TextColor="White"/>
+                                    <Label x:Name="lblSubSolicitudes"
+                                           Text=""
+                                           FontSize="11"
+                                           TextColor="#F5E6C0"/>
+                                </VerticalStackLayout>
+                                <Label Grid.Column="1"
+                                       x:Name="lblEmbudoSolicitudes"
+                                       Text="0"
+                                       FontSize="24"
+                                       FontAttributes="Bold"
+                                       TextColor="White"
+                                       VerticalOptions="Center"/>
+                            </Grid>
+                        </Border>
+
+                        
+                        <Grid ColumnDefinitions="*,Auto,*">
+                            <BoxView Grid.Column="0" HeightRequest="1"
+                                     Color="#E0E0E0" VerticalOptions="Center"/>
+                            <Border Grid.Column="1"
+                                    x:Name="borderEtiqueta2"
+                                    BackgroundColor="#FAEEDA"
+                                    Stroke="Transparent"
+                                    Padding="8,4"
+                                    StrokeShape="roundrectangle 20">
+                                <Label x:Name="lblEtiqueta2"
+                                       Text=""
+                                       FontSize="11"
+                                       TextColor="#633806"
+                                       FontAttributes="Bold"/>
+                            </Border>
+                            <BoxView Grid.Column="2" HeightRequest="1"
+                                     Color="#E0E0E0" VerticalOptions="Center"/>
+                        </Grid>
+
+                        
+                        <Border BackgroundColor="#D4B483"
+                                Stroke="Transparent"
+                                Padding="14"
+                                StrokeShape="roundrectangle 12">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <VerticalStackLayout Grid.Column="0" Spacing="2">
+                                    <Label Text="✅ Se inscriben"
+                                           FontSize="14"
+                                           FontAttributes="Bold"
+                                           TextColor="#5B0000"/>
+                                    <Label x:Name="lblSubInscritos"
+                                           Text=""
+                                           FontSize="11"
+                                           TextColor="#7A6230"/>
+                                </VerticalStackLayout>
+                                <Label Grid.Column="1"
+                                       x:Name="lblEmbudoInscritos"
+                                       Text="0"
+                                       FontSize="24"
+                                       FontAttributes="Bold"
+                                       TextColor="#5B0000"
+                                       VerticalOptions="Center"/>
+                            </Grid>
+                        </Border>
+                    </VerticalStackLayout>
+                </Border>
+
+                
+                <Border Stroke="#D4B483" BackgroundColor="White"
+        StrokeThickness="1" Padding="15"
+        StrokeShape="roundrectangle 15">
+                    <VerticalStackLayout Spacing="12">
+                        <Label Text="Indicadores clave"
+               FontAttributes="Bold"
+               FontSize="14"
+               TextColor="#5B0000"/>
+                        <BoxView HeightRequest="1" Color="#E0E0E0"/>
+
+                        <VerticalStackLayout Spacing="4">
+                            <Label Text="Tasa de interés (alcance → solicitudes)"
+                   FontSize="12" TextColor="#888"/>
+                            <Label x:Name="lblTasaInteres"
+                   Text=""
+                   FontSize="12"
+                   FontAttributes="Bold"
+                   TextColor="#333"/>
+                            <ProgressBar x:Name="progInteres"
+                         Progress="0"
+                         ProgressColor="#E24B4A"/>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Spacing="4">
+                            <Label Text="Tasa de conversión (solicitudes → inscritos)"
+                   FontSize="12" TextColor="#888"/>
+                            <Label x:Name="lblTasaConversion"
+                   Text=""
+                   FontSize="12"
+                   FontAttributes="Bold"
+                   TextColor="#333"/>
+                            <ProgressBar x:Name="progConversion"
+                         Progress="0"
+                         ProgressColor="#9C8442"/>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Spacing="4">
+                            <Label Text="Costo por alumno captado"
+                   FontSize="12" TextColor="#888"/>
+                            <Label x:Name="lblCostoAlumno"
+                   Text=""
+                   FontSize="12"
+                   FontAttributes="Bold"
+                   TextColor="#5B0000"/>
+                        </VerticalStackLayout>
+
+                    </VerticalStackLayout>
+                </Border>
+
+              
+                <Border Stroke="#D4B483" BackgroundColor="White"
+        StrokeThickness="1" Padding="15"
+        StrokeShape="roundrectangle 15">
+                    <VerticalStackLayout Spacing="12">
+                        <Label Text="¿Qué canal funciona mejor?"
+               FontAttributes="Bold"
+               FontSize="14"
+               TextColor="#5B0000"/>
+                        <Label Text="Comparativa en tiempo real vs promedio del otro canal"
+               FontSize="11"
+               TextColor="#888"/>
+                        <BoxView HeightRequest="1" Color="#E0E0E0"/>
+
+                        <CollectionView x:Name="colecCanales">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <VerticalStackLayout Padding="0,6" Spacing="6">
+                                        <Grid ColumnDefinitions="*,Auto">
+                                            <Label Grid.Column="0"
+                                   Text="{Binding canal}"
+                                   FontSize="13"
+                                   FontAttributes="Bold"
+                                   TextColor="#333"/>
+                                            <Label Grid.Column="1"
+                                   Text="{Binding conversion}"
+                                   FontSize="12"
+                                   FontAttributes="Bold"
+                                   TextColor="{Binding colorConversion}"/>
+                                        </Grid>
+                                        <ProgressBar Progress="{Binding progreso}"
+                                     ProgressColor="{Binding colorBarra}"/>
+                                        <Label Text="{Binding detalle}"
+                               FontSize="11"
+                               TextColor="#888"/>
+                                        <BoxView HeightRequest="1" Color="#F0F0F0"/>
+                                    </VerticalStackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+
+                        
+                        <Border x:Name="borderAlertaPublicidad"
+                Stroke="#9FE1CB"
+                BackgroundColor="#EAF9EF"
+                StrokeThickness="1"
+                Padding="12"
+                StrokeShape="roundrectangle 10"
+                IsVisible="False">
+                            <Label x:Name="lblAlertaPublicidad"
+                   Text=""
+                   FontSize="12"
+                   TextColor="#085041"/>
+                        </Border>
+
+                    </VerticalStackLayout>
+                </Border>
+
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

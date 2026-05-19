@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:microcharts="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
+             x:Class="ProyectoFinalWS.DesercionPage"
+             Title="Deserción"
+             BackgroundColor="#F0F2F5">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="0">
+
+
+            <StackLayout BackgroundColor="#5B0000" Padding="20,25">
+                <Label Text="Deserción y Bajas"
+                       FontSize="22"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       TextColor="White"/>
+                <Label Text="Análisis de abandono por programa"
+                       FontSize="13"
+                       HorizontalOptions="Center"
+                       TextColor="#D4B483"
+                       Margin="0,4,0,0"/>
+            </StackLayout>
+
+            <VerticalStackLayout Padding="15" Spacing="12">
+
+                <Border Stroke="#D4B483" BackgroundColor="White"
+                        StrokeThickness="1" Padding="15"
+                        StrokeShape="roundrectangle 15">
+                    <VerticalStackLayout Spacing="12">
+                        <Label Text="Filtros de análisis"
+                               FontAttributes="Bold"
+                               FontSize="14"
+                               TextColor="#5B0000"/>
+                        <BoxView HeightRequest="1" Color="#E0E0E0"/>
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="Año"
+                                   FontSize="12" TextColor="#888"/>
+                            <Picker x:Name="pickerAnio"
+                                    Title="-- Selecciona un año --"
+                                    SelectedIndexChanged="OnFiltroChanged"
+                                    TextColor="Black"
+                                    BackgroundColor="#F0F2F5"/>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="Programa"
+                                   FontSize="12" TextColor="#888"/>
+                            <Picker x:Name="pickerPrograma"
+                                    Title="-- Selecciona un programa --"
+                                    SelectedIndexChanged="OnFiltroChanged"
+                                    TextColor="Black"
+                                    BackgroundColor="#F0F2F5"/>
+                        </VerticalStackLayout>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                    <Border Grid.Column="0"
+                            Stroke="#F7C1C1" BackgroundColor="#FCEBEB"
+                            StrokeThickness="1" Padding="14"
+                            StrokeShape="roundrectangle 15">
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="📉 Total bajas"
+                                   FontSize="11" TextColor="#A32D2D"/>
+                            <Label x:Name="lblTotalBajas"
+                                   Text="-"
+                                   FontSize="26"
+                                   FontAttributes="Bold"
+                                   TextColor="#791F1F"/>
+                            <Label Text="En el año y programa"
+                                   FontSize="11" TextColor="#888"/>
+                        </VerticalStackLayout>
+                    </Border>
+                    <Border Grid.Column="1"
+                            Stroke="#D4B483" BackgroundColor="White"
+                            StrokeThickness="1" Padding="14"
+                            StrokeShape="roundrectangle 15">
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="📅 Mes más crítico"
+                                   FontSize="11" TextColor="#888"/>
+                            <Label x:Name="lblMesCritico"
+                                   Text="-"
+                                   FontSize="22"
+                                   FontAttributes="Bold"
+                                   TextColor="#5B0000"/>
+                            <Label x:Name="lblBajasMesCritico"
+                                   Text=""
+                                   FontSize="11" TextColor="#888"/>
+                        </VerticalStackLayout>
+                    </Border>
+                </Grid>
+
+                
+                <Border Stroke="#D4B483" BackgroundColor="White"
+                        StrokeThickness="1" Padding="15"
+                        StrokeShape="roundrectangle 15">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Bajas por mes"
+                               FontAttributes="Bold"
+                               FontSize="14"
+                               TextColor="#5B0000"/>
+                        <Label x:Name="lblSubtituloGrafica"
+                               Text="Selecciona año y programa"
+                               FontSize="11"
+                               TextColor="#888"/>
+                        <BoxView HeightRequest="1" Color="#E0E0E0"/>
+                        <microcharts:ChartView x:Name="chartBarras"
+                                              HeightRequest="260"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                
+                <Border Stroke="#D4B483" BackgroundColor="White"
+                        StrokeThickness="1" Padding="15"
+                        StrokeShape="roundrectangle 15">
+                    <VerticalStackLayout Spacing="12">
+                        <Label Text="Motivos de baja"
+                               FontAttributes="Bold"
+                               FontSize="14"
+                               TextColor="#5B0000"/>
+                        <BoxView HeightRequest="1" Color="#E0E0E0"/>
+                        <CollectionView x:Name="colecMotivos">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <VerticalStackLayout Padding="0,6" Spacing="6">
+                                        <Grid ColumnDefinitions="*,Auto">
+                                            <Label Grid.Column="0"
+                                                   Text="{Binding motivo}"
+                                                   FontSize="13"
+                                                   TextColor="#333"/>
+                                            <Label Grid.Column="1"
+                                                   Text="{Binding porcentaje, StringFormat='{0:N1}%'}"
+                                                   FontAttributes="Bold"
+                                                   FontSize="13"
+                                                   TextColor="#5B0000"/>
+                                        </Grid>
+                                        <ProgressBar Progress="{Binding progreso}"
+                                                     ProgressColor="#9C8442"/>
+                                        <Label Text="{Binding cantidad, StringFormat='{0} alumnos'}"
+                                               FontSize="11"
+                                               TextColor="#888"/>
+                                        <BoxView HeightRequest="1" Color="#F0F0F0"/>
+                                    </VerticalStackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </VerticalStackLayout>
+                </Border>
+
+               
+                <Border x:Name="borderRecomendacion"
+                        Stroke="#D4B483"
+                        BackgroundColor="#F9F5EC"
+                        StrokeThickness="1"
+                        Padding="15"
+                        StrokeShape="roundrectangle 15"
+                        IsVisible="False">
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="💡 Recomendación BI"
+                               FontAttributes="Bold"
+                               FontSize="14"
+                               TextColor="#5B0000"/>
+                        <BoxView HeightRequest="1" Color="#D4B483"/>
+                        <Label x:Name="lblRecomendacion"
+                               Text=""
+                               FontSize="12"
+                               TextColor="#5B0000"/>
+                    </VerticalStackLayout>
+                </Border>
+
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

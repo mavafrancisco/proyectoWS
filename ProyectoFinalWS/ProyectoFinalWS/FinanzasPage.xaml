@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:microcharts="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
+             x:Class="ProyectoFinalWS.FinanzasPage"
+             Title="Finanzas"
+             BackgroundColor="#F0F2F5">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="0">
+
+            <StackLayout BackgroundColor="#5B0000" Padding="20,25">
+                <Label Text="Finanzas"
+                       FontSize="22"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       TextColor="White"/>
+                <Label Text="Rentabilidad y análisis por programa"
+                       FontSize="13"
+                       HorizontalOptions="Center"
+                       TextColor="#D4B483"
+                       Margin="0,4,0,0"/>
+            </StackLayout>
+
+            <VerticalStackLayout Padding="15" Spacing="12">
+
+                <!-- Picker año -->
+                <Border Stroke="#D4B483" BackgroundColor="White"
+                        StrokeThickness="1" Padding="15"
+                        StrokeShape="roundrectangle 15">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Selecciona el año"
+                               FontAttributes="Bold"
+                               FontSize="14"
+                               TextColor="#5B0000"/>
+                        <BoxView HeightRequest="1" Color="#E0E0E0"/>
+                        <Picker x:Name="pickerAnio"
+                                Title="-- Selecciona un año --"
+                                SelectedIndexChanged="OnAnioChanged"
+                                TextColor="Black"
+                                BackgroundColor="#F0F2F5"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border Stroke="#9C8442" BackgroundColor="#5B0000"
+                        StrokeThickness="1.5" Padding="18"
+                        StrokeShape="roundrectangle 15">
+                    <Grid ColumnDefinitions="*,Auto">
+                        <VerticalStackLayout Grid.Column="0" Spacing="4">
+                            <Label Text="Ganancia neta del año"
+                                   FontSize="12" TextColor="#D4B483"/>
+                            <Label x:Name="lblGanancia"
+                                   Text="$0"
+                                   FontSize="26"
+                                   FontAttributes="Bold"
+                                   TextColor="White"/>
+                            <Label x:Name="lblSubGanancia"
+                                   Text=""
+                                   FontSize="11"
+                                   TextColor="#D4B483"/>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="1"
+                                            VerticalOptions="Center"
+                                            Spacing="4">
+                            <Label x:Name="lblMargen"
+                                   Text="0%"
+                                   FontSize="22"
+                                   FontAttributes="Bold"
+                                   TextColor="#D4B483"
+                                   HorizontalOptions="End"/>
+                            <Label x:Name="lblSemaforoGanancia"
+                                   Text=""
+                                   FontSize="20"
+                                   HorizontalOptions="End"/>
+                        </VerticalStackLayout>
+                    </Grid>
+                </Border>
+
+                <Border Stroke="#D4B483" BackgroundColor="White"
+                        StrokeThickness="1" Padding="15"
+                        StrokeShape="roundrectangle 15">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="¿Dónde se genera más dinero?"
+                               FontAttributes="Bold"
+                               FontSize="14"
+                               TextColor="#5B0000"/>
+                        <Label Text="Ingresos cobrados por tipo de programa"
+                               FontSize="11"
+                               TextColor="#888"/>
+                        <BoxView HeightRequest="1" Color="#E0E0E0"/>
+                        <microcharts:ChartView x:Name="chartTipo"
+                                              HeightRequest="260"/>
+
+                        <Grid x:Name="gridLeyenda"
+                              ColumnDefinitions="*,*"
+                              ColumnSpacing="10">
+                            <VerticalStackLayout Grid.Column="0"
+                                                HorizontalOptions="Center"
+                                                Spacing="4">
+                                <BoxView HeightRequest="10" WidthRequest="10"
+                                         Color="#5B0000"
+                                         HorizontalOptions="Center"/>
+                                <Label Text="Diplomados"
+                                       FontSize="11" TextColor="#888"
+                                       HorizontalOptions="Center"/>
+                                <Label x:Name="lblIngDiplomados"
+                                       Text="$0"
+                                       FontSize="13"
+                                       FontAttributes="Bold"
+                                       TextColor="#5B0000"
+                                       HorizontalOptions="Center"/>
+                            </VerticalStackLayout>
+                            <VerticalStackLayout Grid.Column="1"
+                                                HorizontalOptions="Center"
+                                                Spacing="4">
+                                <BoxView HeightRequest="10" WidthRequest="10"
+                                         Color="#9C8442"
+                                         HorizontalOptions="Center"/>
+                                <Label Text="Cursos"
+                                       FontSize="11" TextColor="#888"
+                                       HorizontalOptions="Center"/>
+                                <Label x:Name="lblIngCursos"
+                                       Text="$0"
+                                       FontSize="13"
+                                       FontAttributes="Bold"
+                                       TextColor="#9C8442"
+                                       HorizontalOptions="Center"/>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border Stroke="#D4B483" BackgroundColor="White"
+                        StrokeThickness="1" Padding="15"
+                        StrokeShape="roundrectangle 15">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="🏆 Top programas más rentables"
+                               FontAttributes="Bold"
+                               FontSize="14"
+                               TextColor="#5B0000"/>
+                        <BoxView HeightRequest="1" Color="#E0E0E0"/>
+                        <CollectionView x:Name="colecTop">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <VerticalStackLayout Padding="0,8" Spacing="6">
+                                        <Grid ColumnDefinitions="*,Auto">
+                                            <VerticalStackLayout Grid.Column="0" Spacing="2">
+                                                <Label Text="{Binding nombre}"
+                                                       FontSize="12"
+                                                       FontAttributes="Bold"
+                                                       TextColor="#5B0000"/>
+                                                <Label Text="{Binding tipo}"
+                                                       FontSize="11"
+                                                       TextColor="#888"/>
+                                            </VerticalStackLayout>
+                                            <VerticalStackLayout Grid.Column="1"
+                                                                HorizontalOptions="End"
+                                                                Spacing="2">
+                                                <Label Text="{Binding gananciaStr}"
+                                                       FontSize="13"
+                                                       FontAttributes="Bold"
+                                                       TextColor="#085041"
+                                                       HorizontalOptions="End"/>
+                                                <Label Text="{Binding margenStr}"
+                                                       FontSize="11"
+                                                       TextColor="#9C8442"
+                                                       HorizontalOptions="End"/>
+                                            </VerticalStackLayout>
+                                        </Grid>
+                                        <ProgressBar Progress="{Binding progreso}"
+                                                     ProgressColor="#5B0000"/>
+                                        <BoxView HeightRequest="1" Color="#F0F0F0"/>
+                                    </VerticalStackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border x:Name="borderCartera"
+                        Stroke="#D4B483" BackgroundColor="White"
+                        StrokeThickness="1" Padding="15"
+                        StrokeShape="roundrectangle 15"
+                        IsVisible="False">
+                    <VerticalStackLayout Spacing="12">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <Label Grid.Column="0"
+                                   Text="⚠️ Cartera pendiente"
+                                   FontAttributes="Bold"
+                                   FontSize="14"
+                                   TextColor="#5B0000"/>
+                            <Label Grid.Column="1"
+                                   x:Name="lblAlertaCartera"
+                                   Text=""
+                                   FontSize="12"/>
+                        </Grid>
+                        <BoxView HeightRequest="1" Color="#E0E0E0"/>
+                        <Grid ColumnDefinitions="*,Auto">
+                            <Label Grid.Column="0" Text="Pendiente"
+                                   FontSize="12" TextColor="#333"/>
+                            <Label Grid.Column="1"
+                                   x:Name="lblPendiente"
+                                   Text="$0"
+                                   FontSize="12"
+                                   FontAttributes="Bold"
+                                   TextColor="#854F0B"/>
+                        </Grid>
+                        <ProgressBar x:Name="progPendiente"
+                                     Progress="0"
+                                     ProgressColor="#EF9F27"/>
+                        <Grid ColumnDefinitions="*,Auto">
+                            <Label Grid.Column="0" Text="Vencido"
+                                   FontSize="12" TextColor="#333"/>
+                            <Label Grid.Column="1"
+                                   x:Name="lblVencido"
+                                   Text="$0"
+                                   FontSize="12"
+                                   FontAttributes="Bold"
+                                   TextColor="#A32D2D"/>
+                        </Grid>
+                        <ProgressBar x:Name="progVencido"
+                                     Progress="0"
+                                     ProgressColor="#E24B4A"/>
+                        <Border Stroke="#F7C1C1" BackgroundColor="#FCEBEB"
+                                StrokeThickness="1" Padding="12"
+                                StrokeShape="roundrectangle 10">
+                            <Label x:Name="lblRecomendacionCartera"
+                                   Text=""
+                                   FontSize="12"
+                                   TextColor="#791F1F"/>
+                        </Border>
+                    </VerticalStackLayout>
+                </Border>
+
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

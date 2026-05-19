@@ -1,0 +1,10 @@
+<api type="debug" assembly-name="ProyectoFinalWS" mvid="c66ea593efb348b7842ea48970de8dd2">
+  <java-to-managed>
+    <entry java-name="crc64f35202c4e13e5b96/MainActivity" managed-name="ProyectoFinalWS.MainActivity, ProyectoFinalWS" managed-type-token-id="33554473" />
+    <entry java-name="crc64f35202c4e13e5b96/MainApplication" managed-name="ProyectoFinalWS.MainApplication, ProyectoFinalWS" managed-type-token-id="33554474" />
+  </java-to-managed>
+  <managed-to-java>
+    <entry java-name="crc64f35202c4e13e5b96/MainActivity" managed-name="ProyectoFinalWS.MainActivity, ProyectoFinalWS" managed-type-token-id="33554473" />
+    <entry java-name="crc64f35202c4e13e5b96/MainApplication" managed-name="ProyectoFinalWS.MainApplication, ProyectoFinalWS" managed-type-token-id="33554474" />
+  </managed-to-java>
+</api>

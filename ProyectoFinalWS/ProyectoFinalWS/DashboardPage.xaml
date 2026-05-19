@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:microcharts="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
+             x:Class="ProyectoFinalWS.DashboardPage"
+             Title="Dashboard"
+             BackgroundColor="#F0F2F5">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="0">
+            <StackLayout BackgroundColor="#5B0000" Padding="20,25">
+                <Label Text="Fundación LAMB AC"
+                       FontSize="22"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       TextColor="White"/>
+                <Label Text="Panel de Control Ejecutivo"
+                       FontSize="13"
+                       HorizontalOptions="Center"
+                       TextColor="#D4B483"
+                       Margin="0,4,0,0"/>
+            </StackLayout>
+
+            <VerticalStackLayout Padding="15" Spacing="12">
+
+                <Border Stroke="#9C8442" BackgroundColor="#5B0000"
+                        StrokeThickness="1.5" Padding="18"
+                        StrokeShape="roundrectangle 15">
+                    <Grid ColumnDefinitions="*,Auto">
+                        <StackLayout Grid.Column="0" Spacing="4">
+                            <Label Text="Ingresos del año 2025"
+                                    FontSize="12" TextColor="#D4B483"/>
+                            <Label x:Name="lblIngresosMes"
+                                    Text="$0"
+                                    FontSize="28"
+                                    FontAttributes="Bold"
+                                    TextColor="White"/>
+                            <Label x:Name="lblComparacionMes"
+                                    Text=""
+                                    FontSize="12"
+                                    TextColor="#D4B483"/>
+                        </StackLayout>
+                        <VerticalStackLayout Grid.Column="1"
+                                             HorizontalOptions="End"
+                                             VerticalOptions="Center"
+                                             Spacing="4">
+                            <Label x:Name="lblPorcentajeMes"
+                                   Text=""
+                                   FontSize="16"
+                                   FontAttributes="Bold"
+                                   HorizontalOptions="End"
+                                   TextColor="#D4B483"/>
+                            <Label x:Name="lblSemaforoMes"
+                                   Text=""
+                                   FontSize="22"
+                                   HorizontalOptions="End"/>
+                        </VerticalStackLayout>
+                    </Grid>
+                </Border>
+
+                <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto"
+                      ColumnSpacing="10" RowSpacing="10">
+
+                    <Border Grid.Row="0" Grid.Column="0"
+                            Stroke="#D4B483" BackgroundColor="White"
+                            StrokeThickness="1" Padding="14"
+                            StrokeShape="roundrectangle 15">
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="👥 Alumnos activos"
+                                   FontSize="11" TextColor="#888"/>
+                            <Label x:Name="lblAlumnos"
+                                   Text="0"
+                                   FontSize="28"
+                                   FontAttributes="Bold"
+                                   TextColor="#5B0000"/>
+                            <Label x:Name="lblSemaforoAlumnos"
+                                   Text=""
+                                   FontSize="12"
+                                   TextColor="#9C8442"/>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <Border Grid.Row="0" Grid.Column="1"
+                            Stroke="#D4B483" BackgroundColor="White"
+                            StrokeThickness="1" Padding="14"
+                            StrokeShape="roundrectangle 15">
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="📉 Bajas este año"
+                                    FontSize="11" TextColor="#888"/>
+                            <Label x:Name="lblDesercion"
+                                    Text="0"
+                                    FontSize="28"
+                                    FontAttributes="Bold"
+                                    TextColor="#5B0000"/>
+                            <Label x:Name="lblSemaforoDesercion"
+                                    Text=""
+                                    FontSize="12"/>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <Border Grid.Row="1" Grid.Column="0"
+                            Stroke="#D4B483" BackgroundColor="White"
+                            StrokeThickness="1" Padding="14"
+                            StrokeShape="roundrectangle 15">
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="📚 Programas activos"
+                                   FontSize="11" TextColor="#888"/>
+                            <Label x:Name="lblProgramas"
+                                   Text="0"
+                                   FontSize="28"
+                                   FontAttributes="Bold"
+                                   TextColor="#5B0000"/>
+                            <Label Text="En curso actualmente"
+                                   FontSize="11" TextColor="#888"/>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <Border Grid.Row="1" Grid.Column="1"
+                            Stroke="#D4B483" BackgroundColor="White"
+                            StrokeThickness="1" Padding="14"
+                            StrokeShape="roundrectangle 15">
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="🎓 Constancias"
+                                   FontSize="11" TextColor="#888"/>
+                            <Label x:Name="lblConstancias"
+                                   Text="0"
+                                   FontSize="28"
+                                   FontAttributes="Bold"
+                                   TextColor="#5B0000"/>
+                            <Label Text="Emitidas este año"
+                                   FontSize="11" TextColor="#888"/>
+                        </VerticalStackLayout>
+                    </Border>
+
+                </Grid>
+
+                <Border Stroke="#D4B483" BackgroundColor="White"
+                        StrokeThickness="1" Padding="15"
+                        StrokeShape="roundrectangle 15">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Alumnos inscritos por tipo de programa"
+                               FontAttributes="Bold"
+                               FontSize="14"
+                               TextColor="#5B0000"/>
+                        <Label x:Name="lblSubtituloGrafica"
+                               Text=""
+                               FontSize="11"
+                               TextColor="#888"/>
+                        <BoxView HeightRequest="1" Color="#E0E0E0"/>
+                        <microcharts:ChartView x:Name="chartDonut"
+                                              HeightRequest="260"/>
+
+                        <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                            <VerticalStackLayout Grid.Column="0"
+                        HorizontalOptions="Center"
+                        Spacing="4">
+                                <BoxView HeightRequest="10" WidthRequest="10"
+                 Color="#5B0000"
+                 HorizontalOptions="Center"/>
+                                <Label Text="Diplomados"
+               FontSize="11" TextColor="#888"
+               HorizontalOptions="Center"/>
+                                <Label x:Name="lblDiplomados"
+               Text="0"
+               FontSize="13"
+               FontAttributes="Bold"
+               TextColor="#5B0000"
+               HorizontalOptions="Center"/>
+                            </VerticalStackLayout>
+                            <VerticalStackLayout Grid.Column="1"
+                        HorizontalOptions="Center"
+                        Spacing="4">
+                                <BoxView HeightRequest="10" WidthRequest="10"
+                 Color="#9C8442"
+                 HorizontalOptions="Center"/>
+                                <Label Text="Cursos"
+               FontSize="11" TextColor="#888"
+               HorizontalOptions="Center"/>
+                                <Label x:Name="lblCursos"
+               Text="0"
+               FontSize="13"
+               FontAttributes="Bold"
+               TextColor="#9C8442"
+               HorizontalOptions="Center"/>
+                            </VerticalStackLayout>
+                        </Grid>
+
+                    </VerticalStackLayout>
+                </Border>
+
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

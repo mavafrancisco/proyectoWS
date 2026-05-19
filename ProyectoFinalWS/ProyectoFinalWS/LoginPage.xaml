@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoFinalWS.LoginPage"
+             BackgroundColor="#5B0000">
+
+    <VerticalStackLayout VerticalOptions="Center" Padding="40" Spacing="20">
+        <VerticalStackLayout Spacing="6" Margin="0,0,0,20">
+            <Label Text="Fundación LAMB AC"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="White"/>
+            <Label Text="Sistema de Inteligencia de Negocios"
+                   FontSize="13"
+                   HorizontalOptions="Center"
+                   TextColor="#D4B483"/>
+            <BoxView HeightRequest="2"
+                     Color="#9C8442"
+                     Margin="40,10,40,0"/>
+        </VerticalStackLayout>
+        
+        <Border Stroke="#9C8442"
+                BackgroundColor="White"
+                StrokeThickness="1.5"
+                Padding="20"
+                StrokeShape="roundrectangle 20">
+            <VerticalStackLayout Spacing="16">
+
+                <Label Text="Iniciar Sesión"
+                       FontSize="18"
+                       FontAttributes="Bold"
+                       TextColor="#5B0000"
+                       HorizontalOptions="Center"/>
+
+                <VerticalStackLayout Spacing="6">
+                    <Label Text="Usuario"
+                           FontSize="12"
+                           TextColor="#888"/>
+                    <Border Stroke="#E0E0E0"
+                            StrokeThickness="1"
+                            Padding="10,6"
+                            StrokeShape="roundrectangle 10">
+                        <Entry x:Name="txtUsuario"
+                               Placeholder="Ingresa tu usuario"
+                               PlaceholderColor="#BBBBBB"
+                               TextColor="Black"
+                               BackgroundColor="Transparent"/>
+                    </Border>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Spacing="6">
+                    <Label Text="Contraseña"
+                           FontSize="12"
+                           TextColor="#888"/>
+                    <Border Stroke="#E0E0E0"
+                            StrokeThickness="1"
+                            Padding="10,6"
+                            StrokeShape="roundrectangle 10">
+                        <Entry x:Name="txtContrasena"
+                               Placeholder="Ingresa tu contraseña"
+                               PlaceholderColor="#BBBBBB"
+                               TextColor="Black"
+                               IsPassword="True"
+                               BackgroundColor="Transparent"/>
+                    </Border>
+                </VerticalStackLayout>
+
+                <Label x:Name="lblError"
+                       Text=""
+                       TextColor="#E74C3C"
+                       HorizontalOptions="Center"
+                       FontSize="12"/>
+
+                <Button x:Name="btnLogin"
+                        Text="Ingresar"
+                        BackgroundColor="#5B0000"
+                        TextColor="#D4B483"
+                        CornerRadius="20"
+                        HeightRequest="50"
+                        FontAttributes="Bold"
+                        Clicked="btnLogin_Clicked"/>
+
+            </VerticalStackLayout>
+        </Border>
+
+        <Label Text="© 2025 Fundación LAMB AC"
+               FontSize="11"
+               HorizontalOptions="Center"
+               TextColor="#D4B483"
+               Margin="0,20,0,0"/>
+
+    </VerticalStackLayout>
+</ContentPage>
